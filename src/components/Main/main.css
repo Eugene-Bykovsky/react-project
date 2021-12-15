@@ -1,0 +1,6 @@
+.main__container {
+    padding: 24px 0;
+    max-width: 1096px;
+    min-width: 320px;
+    margin: 0 auto;
+}
