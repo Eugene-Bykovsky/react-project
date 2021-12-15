@@ -2,13 +2,15 @@ import { Routes, Route } from 'react-router-dom'
 import IndexPage from '../../pages/IndexPage/IndexPage'
 import AuthenticationForm from '../AuthenticationForm/AuthenticationForm'
 import React from 'react'
+import { Navigate } from 'react-router'
 
 const MainRouter = () => {
     return (
         <Routes>
-            <Route index exact element={<IndexPage />} />
-            <Route path={':authPath'} element={<AuthenticationForm />} />
-            <Route path={':authPath'} element={<AuthenticationForm />} />
+            <Route exact index element={<IndexPage />} />
+            <Route path={'login'} element={<AuthenticationForm />} />
+            <Route path={'register'} element={<AuthenticationForm />} />
+            <Route path="*" element={<Navigate to='/'/>}/>
         </Routes>
     )
 }
