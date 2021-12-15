@@ -8,8 +8,7 @@ const MainRouter = () => {
     return (
         <Routes>
             <Route exact index element={<IndexPage />} />
-            <Route path={'login'} element={<AuthenticationForm />} />
-            <Route path={'register'} element={<AuthenticationForm />} />
+            <Route path={':authPath'} element={<AuthenticationForm />} />
             <Route path="*" element={<Navigate to='/'/>}/>
         </Routes>
     )
