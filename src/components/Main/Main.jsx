@@ -1,11 +1,12 @@
 import './main.css';
 import React from "react";
+import MainRouter from '../MainRouter/MainRouter'
 
-const Main = (content) => {
+const Main = () => {
     return (
         <main className={'main'}>
             <div className="main__container">
-                {content}
+                <MainRouter />
             </div>
         </main>
     )
