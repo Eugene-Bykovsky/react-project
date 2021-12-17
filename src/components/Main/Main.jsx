@@ -1,11 +1,11 @@
 import './main.css';
 import React from "react";
 
-const Main = (element) => {
+const Main = (content) => {
     return (
         <main className={'main'}>
             <div className="main__container">
-                {element}
+                {content}
             </div>
         </main>
     )
