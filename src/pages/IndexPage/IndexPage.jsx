@@ -1,19 +1,11 @@
-import React, { useContext } from 'react'
-import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import { AppContext } from '../../App'
+import React from 'react'
+import ArticlesList from '../../components/ArticlesList/ArticlesList'
 
 
 const IndexPage = () => {
-    const {articles} = useContext(AppContext)
-
     return (
-        <div>
-            <h1>Статьи</h1>
-            {articles.map((article) => {
-                return <ArticleCard key={article.id} article={article}/>
-            })}
-        </div>
+        <ArticlesList/>
     )
 }
 
-export default IndexPage;
+export default IndexPage

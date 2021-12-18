@@ -17,10 +17,10 @@ export let articlesData = [
     },
     {
         id: 3,
-        title: 'Зеленая энергетика набирает обороты в мире. Почему?' ,
+        title: 'Зеленая энергетика набирает обороты в мире. Почему?',
         imageSrc: '/images/article3.jpeg',
         description: 'Зеленая энергетика набирает обороты как на Западе, так и на Востоке. Все больше возрастает доля возобновляемых источников энергии, которые постепенно теснят традиционные источники энергии – нефть, газ и уголь. Некоторые страны планируют к 2035–2050 годам полностью отказаться от ископаемых энергоносителей, перейдя на безуглеродное обеспечение.',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         private: false
-    },
+    }
 ]

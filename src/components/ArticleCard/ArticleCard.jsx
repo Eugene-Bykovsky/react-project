@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 import './ArticleCard.css'
-import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+import Button from '../Button/Button'
 
-const ArticleCard = ({article}) => {
-    const {id, title, imageSrc, description} = article
-    let navigate = useNavigate()
+const ArticleCard = ({ article }) => {
+    const { id, title, imageSrc, description } = article
     return (
         <div className="article">
             <h2>{title}</h2>
             <img src={imageSrc} alt={'articleImage'}/>
             <p>{description}</p>
-            <button onClick={() => navigate(`article/${id}`)}>Читать далее</button>
+            <Link to={`article/${id}`}><Button text='Читать далее'/></Link>
         </div>
     )
 }
 
-export default ArticleCard;
+export default ArticleCard

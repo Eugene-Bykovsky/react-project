@@ -1,15 +1,15 @@
-import './main.css';
-import React from "react";
+import './main.css'
+import React from 'react'
 import MainRouter from '../MainRouter/MainRouter'
 
 const Main = () => {
     return (
         <main className={'main'}>
             <div className="main__container">
-                <MainRouter />
+                <MainRouter/>
             </div>
         </main>
     )
 }
 
-export default Main;
+export default Main

@@ -23,8 +23,8 @@ function App() {
     return (
         <AppContext.Provider value={{ articles, setArticles }}>
             <div className={'App'}>
-                <Header />
-                <Main />
+                <Header/>
+                <Main/>
             </div>
         </AppContext.Provider>
     )

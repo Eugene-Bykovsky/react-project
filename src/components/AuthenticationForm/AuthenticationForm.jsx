@@ -18,8 +18,8 @@ const AuthenticationForm = () => {
     const formTitle = isLogin ? 'Войти' : 'Регистрация'
     const formButton = isLogin ? 'Войти' : 'Регистрация'
 
-    if(!isLogin && ! isRegister) {
-        return <IndexPage />
+    if (!isLogin && !isRegister) {
+        return <IndexPage/>
     } else {
         return (
             <form className="form" onSubmit={handlerSubmit}>
@@ -39,7 +39,7 @@ const AuthenticationForm = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <span className="form__error" />
+                    <span className="form__error"/>
                 </div>
                 <div className="form__password-input-wrapper">
                     <label
@@ -56,7 +56,7 @@ const AuthenticationForm = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <span className="form__error" />
+                    <span className="form__error"/>
                 </div>
                 {!isLogin && (
                     <div className="form__checkbox-wrapper">
@@ -65,7 +65,7 @@ const AuthenticationForm = () => {
                             type="checkbox"
                             id="input-checkbox"
                         />
-                        <div className="form__checkbox-mark" />
+                        <div className="form__checkbox-mark"/>
                         <label
                             className="form__checkbox-label"
                             htmlFor="input-checkbox"
@@ -73,7 +73,7 @@ const AuthenticationForm = () => {
                             Я согласен с{' '}
                             <a href="/#">Правилами пользования приложения</a>
                         </label>
-                        <span className="form__error" />
+                        <span className="form__error"/>
                     </div>
                 )}
                 <div className="form__button-wrapper">
