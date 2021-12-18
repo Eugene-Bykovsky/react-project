@@ -15,14 +15,14 @@
     color: #787878;
 }
 
-.form__email-input-wrapper, .form__password-input-wrapper {
+.form__login-input-wrapper, .form__password-input-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     color: #787878;
 }
 
-.form__email-input-wrapper::before, .form__password-input-wrapper::before {
+.form__login-input-wrapper::before, .form__password-input-wrapper::before {
     position: absolute;
     left: -10px;
     top: 30%;
@@ -31,12 +31,12 @@
     opacity: 0;
 }
 
-.form__email-input-wrapper {
+.form__login-input-wrapper {
     margin-top: 17px;
     margin-bottom: 13px;
 }
 
-.form__email-input-label, .form__password-input-label {
+.form__login-input-label, .form__password-input-label {
     padding-left: 8px;
     margin-bottom: 3px;
     font-weight: bold;
@@ -44,7 +44,7 @@
     line-height: 16px;
 }
 
-.form__email-input, .form__password-input {
+.form__login-input, .form__password-input {
     height: 49px;
     border: 1px solid #787878;
     border-radius: 10px;
@@ -54,7 +54,7 @@
     line-height: 36px;
 }
 
-.form__email-input::placeholder, .form__password-input::placeholder {
+.form__login-input::placeholder, .form__password-input::placeholder {
     font-weight: bold;
     font-size: 28px;
     line-height: 36px;

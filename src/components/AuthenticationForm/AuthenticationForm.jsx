@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router'
+import { AppContext } from '../../App'
 import './AuthenticationForm.css'
 import IndexPage from '../../pages/IndexPage/IndexPage'
+import { usersData } from '../../databases/database'
 
 const AuthenticationForm = () => {
-    const [email, setEmail] = useState('')
+    const { setIsAuth } = useContext(AppContext)
+    const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const handlerSubmit = (e) => {
+    const { authPath } = useParams()
+
+    const handleSubmit = (e) => {
         e.preventDefault()
+        const user = usersData.find((item) => item.login === login)
+        if (!user) {
+            return alert('no such user!')
+        }
+        if (user.password !== password) {
+            return alert('error password!')
+        }
+        setIsAuth(true)
+        setLogin('')
+        setPassword('')
     }
-
-    let { authPath } = useParams()
     console.log(authPath)
-
     const isLogin = authPath === 'login'
     const isRegister = authPath === 'register'
     const formTitle = isLogin ? 'Войти' : 'Регистрация'
@@ -22,22 +34,23 @@ const AuthenticationForm = () => {
         return <IndexPage/>
     } else {
         return (
-            <form className="form" onSubmit={handlerSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <h1 className="form__title">{formTitle}</h1>
-                <div className="form__email-input-wrapper">
+                <div className="form__login-input-wrapper">
                     <label
-                        className="form__email-input-label"
-                        htmlFor="email-input"
+                        className="form__login-input-label"
+                        htmlFor="login-input"
                     >
-                        Email
+                        Логин
                     </label>
                     <input
-                        className="form__email-input"
+                        required
+                        className="form__login-input"
                         type="text"
-                        id="email-input"
-                        placeholder="Введите email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        id="login-input"
+                        placeholder="Введите логин"
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
                     />
                     <span className="form__error"/>
                 </div>
@@ -49,6 +62,7 @@ const AuthenticationForm = () => {
                         Пароль
                     </label>
                     <input
+                        required
                         className="form__password-input"
                         type="password"
                         id="password-input"
@@ -77,7 +91,7 @@ const AuthenticationForm = () => {
                     </div>
                 )}
                 <div className="form__button-wrapper">
-                    <button className="form__button">{formButton}</button>
+                        <button className="form__button">{formButton}</button>
                 </div>
             </form>
         )

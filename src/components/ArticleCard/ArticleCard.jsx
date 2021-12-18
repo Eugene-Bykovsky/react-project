@@ -7,7 +7,7 @@ const ArticleCard = ({ article }) => {
     const { id, title, imageSrc, description } = article
     return (
         <div className="article">
-            <h2>{title}</h2>
+            <Link className={'article__link'} to={`article/${id}`}><h2>{title}</h2></Link>
             <img src={imageSrc} alt={'articleImage'}/>
             <p>{description}</p>
             <Link to={`article/${id}`}><Button text='Читать далее'/></Link>

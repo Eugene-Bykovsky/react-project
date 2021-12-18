@@ -7,8 +7,8 @@ import { articlesData } from './databases/database'
 export const AppContext = createContext(null)
 
 function App() {
-
     const [articles, setArticles] = useState([])
+    const [isAuth, setIsAuth] = useState(false)
 
     useEffect(() => {
         setArticles(articlesData)
@@ -21,7 +21,7 @@ function App() {
     }
 
     return (
-        <AppContext.Provider value={{ articles, setArticles }}>
+        <AppContext.Provider value={{ articles, setArticles, isAuth, setIsAuth }}>
             <div className={'App'}>
                 <Header/>
                 <Main/>

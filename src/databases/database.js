@@ -24,3 +24,18 @@ export let articlesData = [
         private: false
     }
 ]
+
+export let usersData = [
+    {
+        login: 'admin',
+        password: 'admin',
+        position: 'administrator',
+        roles: ['adminPanel', 'privateArticles'],
+    },
+    {
+        login: 'manager',
+        password: 'admin2',
+        position: 'manager',
+        roles: ['privateArticles'],
+    },
+]

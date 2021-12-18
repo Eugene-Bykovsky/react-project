@@ -3,3 +3,11 @@
     margin: 8px;
     background-color: #fff;
 }
+
+.article__link {
+    color: #333;
+}
+
+.article__link:hover {
+    color:#487284;
+}
