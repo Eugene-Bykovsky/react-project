@@ -1,0 +1,12 @@
+.sidebar {
+    flex-basis: 28%;
+    background-color: #fff;
+    padding: 24px 20px;
+    height: fit-content;
+}
+
+@media screen and (max-width: 544px) {
+    .sidebar {
+        display: none;
+    }
+}

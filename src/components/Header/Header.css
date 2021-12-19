@@ -3,9 +3,6 @@
 }
 
 .header__container {
-    max-width: 1096px;
-    min-width: 320px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,7 +10,6 @@
 }
 
 .title {
-    /*padding-left: 16px;*/
     text-decoration: none;
     color: #fff;
 }
@@ -33,4 +29,12 @@
 .nav__link.active {
     opacity: 1;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 544px) {
+    .nav {
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+    }
 }

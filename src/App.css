@@ -19,3 +19,9 @@ ul {
     min-height: 100vh;
     background-color: #f0f0f0;
 }
+
+.container {
+    max-width: 1096px;
+    /*min-width: 320px;*/
+    margin: 0 auto;
+}

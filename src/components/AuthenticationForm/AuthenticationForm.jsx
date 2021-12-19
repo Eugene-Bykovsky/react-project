@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { AppContext } from '../../App'
 import './AuthenticationForm.css'
 import IndexPage from '../../pages/IndexPage/IndexPage'
 import { usersData } from '../../databases/database'
+import { Link } from 'react-router-dom'
 
 const AuthenticationForm = () => {
     const { setIsAuth } = useContext(AppContext)
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const { authPath } = useParams()
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,8 +25,8 @@ const AuthenticationForm = () => {
         setIsAuth(true)
         setLogin('')
         setPassword('')
+        navigate('/')
     }
-    console.log(authPath)
     const isLogin = authPath === 'login'
     const isRegister = authPath === 'register'
     const formTitle = isLogin ? 'Войти' : 'Регистрация'
@@ -34,66 +36,68 @@ const AuthenticationForm = () => {
         return <IndexPage/>
     } else {
         return (
-            <form className="form" onSubmit={handleSubmit}>
-                <h1 className="form__title">{formTitle}</h1>
-                <div className="form__login-input-wrapper">
-                    <label
-                        className="form__login-input-label"
-                        htmlFor="login-input"
-                    >
-                        Логин
-                    </label>
-                    <input
-                        required
-                        className="form__login-input"
-                        type="text"
-                        id="login-input"
-                        placeholder="Введите логин"
-                        value={login}
-                        onChange={(e) => setLogin(e.target.value)}
-                    />
-                    <span className="form__error"/>
-                </div>
-                <div className="form__password-input-wrapper">
-                    <label
-                        className="form__password-input-label"
-                        htmlFor="password-input"
-                    >
-                        Пароль
-                    </label>
-                    <input
-                        required
-                        className="form__password-input"
-                        type="password"
-                        id="password-input"
-                        placeholder="Введите пароль"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <span className="form__error"/>
-                </div>
-                {!isLogin && (
-                    <div className="form__checkbox-wrapper">
-                        <input
-                            className="form__checkbox"
-                            type="checkbox"
-                            id="input-checkbox"
-                        />
-                        <div className="form__checkbox-mark"/>
+            <div className={'form-container container'}>
+                <form className="form" onSubmit={handleSubmit}>
+                    <h2 className="form__title">{formTitle}</h2>
+                    <div className="form__login-input-wrapper">
                         <label
-                            className="form__checkbox-label"
-                            htmlFor="input-checkbox"
+                            className="form__login-input-label"
+                            htmlFor="login-input"
                         >
-                            Я согласен с{' '}
-                            <a href="/#">Правилами пользования приложения</a>
+                            Логин
                         </label>
+                        <input
+                            required
+                            className="form__login-input"
+                            type="text"
+                            id="login-input"
+                            placeholder="Введите логин"
+                            value={login}
+                            onChange={(e) => setLogin(e.target.value)}
+                        />
                         <span className="form__error"/>
                     </div>
-                )}
-                <div className="form__button-wrapper">
+                    <div className="form__password-input-wrapper">
+                        <label
+                            className="form__password-input-label"
+                            htmlFor="password-input"
+                        >
+                            Пароль
+                        </label>
+                        <input
+                            required
+                            className="form__password-input"
+                            type="password"
+                            id="password-input"
+                            placeholder="Введите пароль"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <span className="form__error"/>
+                    </div>
+                    {!isLogin && (
+                        <div className="form__checkbox-wrapper">
+                            <input
+                                className="form__checkbox"
+                                type="checkbox"
+                                id="input-checkbox"
+                            />
+                            <div className="form__checkbox-mark"/>
+                            <label
+                                className="form__checkbox-label"
+                                htmlFor="input-checkbox"
+                            >
+                                Я согласен с{' '}
+                                <Link to="/#">Правилами пользования приложения</Link>
+                            </label>
+                            <span className="form__error"/>
+                        </div>
+                    )}
+                    <div className="form__button-wrapper">
                         <button className="form__button">{formButton}</button>
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         )
     }
 }

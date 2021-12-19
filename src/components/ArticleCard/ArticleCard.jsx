@@ -6,11 +6,19 @@ import Button from '../Button/Button'
 const ArticleCard = ({ article }) => {
     const { id, title, imageSrc, description } = article
     return (
-        <div className="article">
-            <Link className={'article__link'} to={`article/${id}`}><h2>{title}</h2></Link>
-            <img src={imageSrc} alt={'articleImage'}/>
-            <p>{description}</p>
-            <Link to={`article/${id}`}><Button text='Читать далее'/></Link>
+        <div className="articles__item article">
+            <Link className={'article__link'} to={`article/${id}`}>
+                <h2 className={'article__title'}>
+                    {title}
+                </h2>
+            </Link>
+            <img className={'article__image'} src={imageSrc} alt={'articleImage'}/>
+            <p className={'article__description'}>
+                {description}
+            </p>
+            <Link to={`article/${id}`}>
+                <Button text='Читать далее'/>
+            </Link>
         </div>
     )
 }

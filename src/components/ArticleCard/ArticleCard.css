@@ -1,13 +1,26 @@
-.article {
-    padding: 8px;
-    margin: 8px;
+.articles__item {
+    padding: 16px 20px;
+    margin-bottom: 8px;
     background-color: #fff;
+}
+
+.article__image {
+    width: 100%;
 }
 
 .article__link {
     color: #333;
 }
 
+.article__title, .article__description {
+    padding: 8px 0;
+}
+
 .article__link:hover {
     color:#487284;
+}
+
+.article .button {
+    display: block;
+    margin: 0 auto;
 }

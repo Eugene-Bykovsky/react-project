@@ -1,6 +1,11 @@
+.form-container {
+    padding-top: 100px;
+}
+
 .form {
+    max-width: 50%;
+    min-width: 320px;
     margin: 0 auto;
-    width: 600px;
     border-radius: 20px;
     background: #fff;
     padding: 26px 46px 26px 45px;
@@ -11,7 +16,7 @@
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
     color: #787878;
 }
 
@@ -48,7 +53,7 @@
     height: 49px;
     border: 1px solid #787878;
     border-radius: 10px;
-    padding: 7px 15px 6px 15px;
+    padding: 6px 10px;
     font-weight: bold;
     font-size: 28px;
     line-height: 36px;

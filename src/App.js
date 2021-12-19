@@ -10,14 +10,18 @@ function App() {
     const [articles, setArticles] = useState([])
     const [isAuth, setIsAuth] = useState(false)
 
+    console.log('isAuth', isAuth)
+
     useEffect(() => {
         setArticles(articlesData)
     }, [])
 
     if (!articles.length) {
-        return <div>
-            <h1>Загрузка...</h1>
-        </div>
+        return (
+            <div>
+                <h1>Загрузка...</h1>
+            </div>
+        )
     }
 
     return (

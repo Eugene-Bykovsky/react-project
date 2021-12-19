@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 const Header = () => {
     return (
         <header className='header'>
-            <div className='header__container'>
+            <div className='header__container container'>
                 <h1 className='title'>
                     <Link to='/' className='title'>
                         myHabr

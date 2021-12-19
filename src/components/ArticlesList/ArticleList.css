@@ -1,0 +1,10 @@
+.articles {
+    flex-basis: 70%;
+}
+
+@media screen and (max-width: 544px) {
+    .articles {
+        flex-basis: auto;
+    }
+
+}
