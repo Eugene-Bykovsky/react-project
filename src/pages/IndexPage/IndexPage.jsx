@@ -6,7 +6,7 @@ import './IndexPage.css'
 
 const IndexPage = () => {
     return (
-        <div className={'articles__container container'}>
+        <div className={'articles-container container'}>
             <ArticlesList/>
             <Sidebar/>
         </div>
