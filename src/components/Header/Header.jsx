@@ -1,8 +1,42 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
 import { Link, NavLink } from 'react-router-dom'
+import { AppContext } from '../../App'
+
+const publicLinks = [
+    {
+        path: '/',
+        title: 'Главная'
+    },
+    {
+        path: '/login',
+        title: 'Войти'
+    },
+    {
+        path: '/register',
+        title: 'Регистрация'
+    }
+]
+
+const privateLinks = [
+    {
+        path: '/',
+        title: 'Главная'
+    },
+    {
+        path: '/private',
+        title: 'Личный кабинет'
+    },
+    {
+        path: '/',
+        title: 'Выйти'
+    },
+]
 
 const Header = () => {
+    const { isAuth, setIsAuth } = useContext(AppContext)
+    const links = isAuth ? privateLinks : publicLinks
+
     return (
         <header className='header'>
             <div className='header__container container'>
@@ -11,22 +45,15 @@ const Header = () => {
                         myHabr
                     </Link>
                 </h1>
-                <ul className='nav'>
-                    <li className='nav__item'>
-                        <NavLink to='/' className='nav__link'>
-                            Главная
-                        </NavLink>
-                    </li>
-                    <li className='nav__item'>
-                        <NavLink to='/login' className='nav__link'>
-                            Войти
-                        </NavLink>
-                    </li>
-                    <li className='nav__item'>
-                        <NavLink to='/register' className='nav__link'>
-                            Регистрация
-                        </NavLink>
-                    </li>
+                <ul className="nav">
+                    {links.map(link => {
+                        return (
+                            <li key={link.title}>
+                                {(link.title === 'Выйти') && <Link className="nav__link" onClick={() => setIsAuth(false)} to={link.path}>{link.title}</Link>}
+                                {(link.title !== 'Выйти') && <NavLink className="nav__link" to={link.path}>{link.title}</NavLink>}
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         </header>

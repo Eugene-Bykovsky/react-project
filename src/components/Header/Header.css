@@ -24,11 +24,16 @@
     padding-left: 16px;
     color: #fff;
     opacity: 0.5;
+    position: relative;
 }
 
 .nav__link.active {
     opacity: 1;
     text-decoration: underline;
+}
+
+.nav__link:hover {
+    opacity: 1;
 }
 
 @media screen and (max-width: 544px) {
