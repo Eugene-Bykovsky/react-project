@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ArticlePage.css'
 import { AppContext } from '../../App'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
+import { getData } from '../../api'
 
 const ArticlePage = () => {
-    const { articles, isAuth } = useContext(AppContext)
+    const { isAuth } = useContext(AppContext)
+    const [article, setArticle] = useState({})
     let { id } = useParams()
-    const article = articles.find((item) => item.id === Number(id))
+
+    useEffect(() => {
+        getData(`article/${id}`).then(res => setArticle(res))
+    }, [id])
 
     if (!article) {
         return (

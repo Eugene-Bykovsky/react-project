@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
-import { articlesData } from './databases/database'
+import { getData } from './api'
 
 export const AppContext = createContext(null)
 
@@ -10,10 +10,8 @@ function App() {
     const [articles, setArticles] = useState([])
     const [isAuth, setIsAuth] = useState(false)
 
-    console.log('isAuth', isAuth)
-
     useEffect(() => {
-        setArticles(articlesData)
+        getData('article').then(res => setArticles(res))
     }, [])
 
     if (!articles.length) {
@@ -25,7 +23,7 @@ function App() {
     }
 
     return (
-        <AppContext.Provider value={{ articles, setArticles, isAuth, setIsAuth }}>
+        <AppContext.Provider value={{ isAuth, setIsAuth }}>
             <div className={'App'}>
                 <Header/>
                 <Main/>

@@ -3,18 +3,19 @@ import { useNavigate, useParams } from 'react-router'
 import { AppContext } from '../../App'
 import './AuthenticationForm.css'
 import IndexPage from '../../pages/IndexPage/IndexPage'
-import { usersData } from '../../databases/database'
 import { Link } from 'react-router-dom'
+import { getData } from '../../api'
 
 const AuthenticationForm = () => {
     const { setIsAuth } = useContext(AppContext)
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const { authPath } = useParams()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        const usersData = await getData('user')
         const user = usersData.find((item) => item.login === login)
         if (!user) {
             return alert('no such user!')
