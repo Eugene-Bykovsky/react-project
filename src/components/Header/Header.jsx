@@ -41,7 +41,7 @@ const Header = () => {
         <header className='header'>
             <div className='header__container container'>
                 <h1 className='title'>
-                    <Link to='/' className='title'>
+                    <Link to='/' className='title__link'>
                         myHabr
                     </Link>
                 </h1>

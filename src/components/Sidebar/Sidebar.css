@@ -5,6 +5,28 @@
     height: fit-content;
 }
 
+.sidebar-block__title {
+    padding: 8px 0;
+    border-bottom: 1px solid #d5dddf;
+    font-size: 1em;
+    color: #505c66;
+}
+
+.article-list-block__item {
+    padding: 16px 0;
+    border-top: 1px solid #d5dddf;
+    border-bottom: 1px solid #d5dddf;
+}
+
+.article-list-block__link {
+    color: #333;
+    opacity: 1;
+}
+
+.article-list-block__link:hover {
+    color:#487284;
+}
+
 @media screen and (max-width: 544px) {
     .sidebar {
         display: none;
