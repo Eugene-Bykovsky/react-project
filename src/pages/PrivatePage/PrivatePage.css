@@ -1,0 +1,23 @@
+.private-page-container {
+    padding: 16px 16px;
+    background-color: #fff;
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 8px 8px;
+    margin-bottom: 16px;
+}
+
+.title-bar__button {
+    background-color: #7aa1bd;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.title-bar__button:hover {
+    background-color: #4bacfe;
+}

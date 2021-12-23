@@ -9,7 +9,6 @@ const Sidebar = () => {
         getData('article').then(res => setArticles(res))
     }, [])
     const sortedArticles = articles.filter(item => item.best === true)
-    console.log(sortedArticles)
 
     return (
         <aside className='sidebar'>

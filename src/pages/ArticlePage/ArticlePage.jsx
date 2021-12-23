@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 import { getData } from '../../api'
+import PageError from '../../components/PageError/PageError'
 
 const ArticlePage = () => {
     const { isAuth } = useContext(AppContext)
@@ -16,21 +17,11 @@ const ArticlePage = () => {
     }, [id])
 
     if (!article) {
-        return (
-            <div className={'article__container container'}>
-                <h2>Такой страницы не существует</h2>
-                <Link to="/"><Button text={'На главную'}/></Link>
-            </div>
-        )
+        return <PageError error={'Not found'}/>
     }
 
     if (!isAuth && article.private) {
-        return (
-            <div className={'article__container container'}>
-                <h2> Данная страница доступна только авторизованным пользователям </h2>
-                <Link to="/"><Button text={'На главную'}/></Link>
-            </div>
-        )
+        return <PageError error={'Not authorized'}/>
     }
 
     return (
@@ -39,7 +30,7 @@ const ArticlePage = () => {
                 <h2 className={'article__title'}>{article.title}</h2>
                 <img className={'article__image'} src={article.imageSrc} alt={'articleImage'}/>
                 <p className={'article__description'}>{article.description}{article.text}</p>
-                <Link to="/"><Button text='Назад'/></Link>
+                <Link to="/"><Button class={'button'} text='Назад'/></Link>
             </div>
         </div>
     )
