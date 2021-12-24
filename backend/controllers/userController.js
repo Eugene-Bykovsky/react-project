@@ -1,17 +1,14 @@
-let users = [
-    {
-        login: 'admin',
-        password: 'admin'
-    },
-    {
-        login: 'user',
-        password: 'user'
-    }
-]
+const User = require('../models/User')
 
 class UserController {
-    async getAll(req, res) {
-        return res.json(users)
+    async getUser(req, res) {
+        try {
+            const { login, password } = req.body
+            const user = await User.findOne({ login, password })
+            return res.json(user.login)
+        } catch (e) {
+            res.status(500).json({ message: 'Что-то пошло не так...' })
+        }
     }
 }
 

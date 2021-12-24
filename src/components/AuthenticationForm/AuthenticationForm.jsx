@@ -4,7 +4,7 @@ import { AppContext } from '../../App'
 import './AuthenticationForm.css'
 import IndexPage from '../../pages/IndexPage/IndexPage'
 import { Link } from 'react-router-dom'
-import { getData } from '../../api'
+import { getUser } from '../../api'
 
 const AuthenticationForm = () => {
     const { setIsAuth } = useContext(AppContext)
@@ -15,13 +15,10 @@ const AuthenticationForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const usersData = await getData('user')
-        const user = usersData.find((item) => item.login === login)
+        const user = await getUser(authPath, login, password)
+        console.log(user)
         if (!user) {
             return alert('no such user!')
-        }
-        if (user.password !== password) {
-            return alert('error password!')
         }
         setIsAuth(true)
         setLogin('')

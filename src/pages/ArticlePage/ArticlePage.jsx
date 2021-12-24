@@ -4,7 +4,7 @@ import { AppContext } from '../../App'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
-import { getData } from '../../api'
+import { getArticleById } from '../../api'
 import PageError from '../../components/PageError/PageError'
 
 const ArticlePage = () => {
@@ -13,7 +13,7 @@ const ArticlePage = () => {
     let { id } = useParams()
 
     useEffect(() => {
-        getData(`article/${id}`).then(res => setArticle(res))
+        getArticleById(id).then(res => setArticle(res))
     }, [id])
 
     if (!article) {

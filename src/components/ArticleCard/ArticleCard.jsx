@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 
 const ArticleCard = ({ article }) => {
-    const { id, title, imageSrc, description } = article
+    const { _id, title, imageSrc, description } = article
     return (
         <div className="articles__item article">
-            <Link className={'article__link'} to={`article/${id}`}>
+            <Link className={'article__link'} to={`article/${_id}`}>
                 <h2 className={'article__title'}>
                     {title}
                 </h2>
@@ -16,7 +16,7 @@ const ArticleCard = ({ article }) => {
             <p className={'article__description'}>
                 {description}
             </p>
-            <Link to={`article/${id}`}>
+            <Link to={`article/${_id}`}>
                 <Button class={'button'} text={'Читать далее'}/>
             </Link>
         </div>

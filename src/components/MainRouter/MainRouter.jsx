@@ -11,7 +11,7 @@ const MainRouter = () => {
         <Routes>
             <Route exact index element={<IndexPage/>}/>
             <Route path='/article/:id' element={<ArticlePage/>}/>
-            <Route path='/:authPath' element={<AuthenticationForm/>}/>
+            <Route path='/user/:authPath' element={<AuthenticationForm/>}/>
             <Route path='/private' element={<PrivatePage/>}/>
             <Route path="*" element={<Navigate to='/'/>}/>
         </Routes>

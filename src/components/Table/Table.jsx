@@ -18,11 +18,11 @@ const Table = (articles) => {
             {
                 arr.map((item) => {
                     return (
-                        <tr className={'content-row'} key={item.id}>
+                        <tr className={'content-row'} key={item._id}>
                             <td className={'content-row__item col-title'}>{item.title}</td>
                             <td className={'content-row__item col-description'}>{item.description}</td>
                             <td className={'content-row__item col-actions'}>
-                                <Link to={`/article/${item.id}`}>
+                                <Link to={`/article/${item._id}`}>
                                     <Button class={'button col-actions__button'} text={'Смотреть'}/>
                                 </Link>
                                 <Link to={`/#`}>

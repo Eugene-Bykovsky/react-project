@@ -9,11 +9,11 @@ const publicLinks = [
         title: 'Главная'
     },
     {
-        path: '/login',
+        path: '/user/login',
         title: 'Войти'
     },
     {
-        path: '/register',
+        path: '/user/register',
         title: 'Регистрация'
     }
 ]

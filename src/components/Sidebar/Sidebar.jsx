@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Sidebar.css'
-import { getData } from '../../api'
+import { getArticles } from '../../api'
 
 const Sidebar = () => {
     const [articles, setArticles] = useState([])
     useEffect(() => {
-        getData('article').then(res => setArticles(res))
+        getArticles().then(res => setArticles(res))
     }, [])
     const sortedArticles = articles.filter(item => item.best === true)
 
@@ -17,8 +17,8 @@ const Sidebar = () => {
                 <ul className="sidebar-block__list article-list-block">
                     {sortedArticles.map(article => {
                         return (
-                            <li className={'article-list-block__item'} key={article.id}>
-                                <Link className={'article-list-block__link'} to={`article/${article.id}`}>{article.title}</Link>
+                            <li className={'article-list-block__item'} key={article._id}>
+                                <Link className={'article-list-block__link'} to={`article/${article._id}`}>{article.title}</Link>
                             </li>
                         )
                     })}
