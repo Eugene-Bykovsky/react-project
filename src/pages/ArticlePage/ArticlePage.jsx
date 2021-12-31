@@ -30,7 +30,7 @@ const ArticlePage = () => {
                 <h2 className={'article__title'}>{article.title}</h2>
                 <img className={'article__image'} src={article.imageSrc} alt={'articleImage'}/>
                 <p className={'article__description'}>{article.description}{article.text}</p>
-                <Link to="/"><Button class={'button'} text='Назад'/></Link>
+                <Link to="/"><Button buttonClass={'button'} text='Назад'/></Link>
             </div>
         </div>
     )

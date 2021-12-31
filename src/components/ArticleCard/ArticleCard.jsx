@@ -17,7 +17,7 @@ const ArticleCard = ({ article }) => {
                 {description}
             </p>
             <Link to={`article/${_id}`}>
-                <Button class={'button'} text={'Читать далее'}/>
+                <Button buttonClass={'button'} text={'Читать далее'}/>
             </Link>
         </div>
     )

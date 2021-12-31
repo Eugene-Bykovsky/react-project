@@ -2,9 +2,10 @@ import React from 'react'
 import './Button.css'
 
 const Button = (props) => {
+    const {onClickFunc, buttonClass, text} = props
     return (
-        <button className={props.class}>
-            {props.text}
+        <button onClick={onClickFunc} className={buttonClass}>
+            {text}
         </button>
     )
 }

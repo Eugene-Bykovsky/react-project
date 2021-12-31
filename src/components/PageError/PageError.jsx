@@ -18,7 +18,7 @@ const PageError = (props) => {
     return (
         <div className={'article__container container'}>
             <h2>{titleError}</h2>
-            <Link to="/"><Button class={'button'} text={'На главную'}/></Link>
+            <Link to="/"><Button buttonClass={'button'} text={'На главную'}/></Link>
         </div>
     )
 }
