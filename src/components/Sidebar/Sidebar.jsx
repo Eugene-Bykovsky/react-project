@@ -8,7 +8,7 @@ const Sidebar = () => {
     useEffect(() => {
         getArticles().then(res => setArticles(res))
     }, [])
-    const sortedArticles = articles.filter(item => item.best === true)
+    const sortedArticles = articles.filter(item => item.categories.includes('best'))
 
     return (
         <aside className='sidebar'>

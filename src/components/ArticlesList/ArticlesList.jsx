@@ -10,7 +10,7 @@ const ArticlesList = () => {
     useEffect(() => {
         getArticles().then(res => setArticles(res))
     }, [])
-    const sortedArticles = articles.filter(item => item.private === false)
+    const sortedArticles = articles.filter(item => !item.categories.includes('private'))
 
     if (!articles.length) {
         return (

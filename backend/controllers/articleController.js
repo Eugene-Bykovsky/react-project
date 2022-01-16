@@ -20,6 +20,17 @@ class ArticleController {
             res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
         }
     }
+
+    async createNewArticle(req, res) {
+        try {
+            const { title, imageSrc, description, text, categories } = req.body
+            const article = new Article({ title, imageSrc, description, text, categories })
+            await article.save()
+            res.status(201).json({ message: 'Статья создана' })
+        } catch (e) {
+            res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
+        }
+    }
 }
 
 module.exports = new ArticleController()

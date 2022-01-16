@@ -20,6 +20,15 @@ export const getArticleById = async (id) => {
     }
 }
 
+export const createArticle = async (title, imageSrc, description, text, categories) => {
+    try {
+        await axios.post(`${baseUrl}article/create`, { title, imageSrc, description, text, categories})
+        console.log('Статья создана фронт')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 export const getUser = async (authPath, login, password ) => {
     try {
         const response = await axios.post(`${baseUrl}user/${authPath}`, {login, password})

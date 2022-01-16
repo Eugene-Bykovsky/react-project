@@ -16,11 +16,20 @@ const ArticlePage = () => {
         getArticleById(id).then(res => setArticle(res))
     }, [id])
 
+    if (JSON.stringify(article) === '{}') {
+        return (
+            <div>
+                <h1>Загрузка...</h1>
+            </div>
+        )
+    }
+
     if (!article) {
         return <PageError error={'Not found'}/>
     }
 
-    if (!isAuth && article.private) {
+    if (!isAuth && article.categories.includes('private')) {
+        console.log(article)
         return <PageError error={'Not authorized'}/>
     }
 
