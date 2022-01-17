@@ -1,23 +1,17 @@
 import React, { useContext } from 'react'
 import './MainTable.css'
-import {
-    ArticlesTbodyCreateForm, ArticlesTbodyDefault
-} from '../MainTableComponents/TbodyContent/ArticlesTbody'
-import { ArticlesHeadCreateForm, ArticlesHeadDefault } from '../MainTableComponents/TheadContent/ArticlesHead'
 import { adminContext } from '../../../pages/PrivatePage/PrivatePage'
+import { DefaultTable } from '../MainTableComponents/Tables/DefaultTable'
+import { ActionCreateTable } from '../MainTableComponents/Tables/ActionCreateTable'
 
 
 const MainTable = () => {
-    const {action, articles} = useContext(adminContext)
+    const {action} = useContext(adminContext)
     return (
-        <table className="table">
-            {/*THEAD*/}
-            {!action && <ArticlesHeadDefault/>}
-            {action === 'create' && <ArticlesHeadCreateForm/>}
-            {/*TBODY*/}
-            {!action && <ArticlesTbodyDefault arrayArticles={articles}/>}
-            {action === 'create' && <ArticlesTbodyCreateForm/>}
-        </table>
+        <div className="table-container">
+            {!action && <DefaultTable/>}
+            {action === 'create' && <ActionCreateTable/>}
+        </div>
     )
 }
 
