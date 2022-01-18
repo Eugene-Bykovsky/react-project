@@ -18,7 +18,7 @@ const PrivatePage = () => {
 
     if (!articles.length) {
         return (
-            <div>
+            <div className={'private-page-container container'}>
                 <h1>Загрузка...</h1>
             </div>
         )

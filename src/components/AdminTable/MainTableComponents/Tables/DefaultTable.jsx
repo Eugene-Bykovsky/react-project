@@ -2,9 +2,14 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../../Button/Button'
 import { adminContext } from '../../../../pages/PrivatePage/PrivatePage'
+import { deleteArticleById, getArticles } from '../../../../api'
 
 export const DefaultTable = () => {
-    const { setAction, articles } = useContext(adminContext)
+    const { setAction, articles, setArticles } = useContext(adminContext)
+    const deleteArticle = async (id) => {
+        await deleteArticleById(id)
+        await getArticles().then(res => setArticles(res))
+    }
     return (
         <table className="table">
             <thead>
@@ -25,9 +30,7 @@ export const DefaultTable = () => {
                                 <Link to={`/article/${item._id}`}>
                                     <Button buttonClass={'button col-actions__button'} text={'Смотреть'}/>
                                 </Link>
-                                <Link to={`/#`}>
-                                    <Button buttonClass={'button col-actions__button'} text={'Удалить'}/>
-                                </Link>
+                                <Button onClickFunc={() => deleteArticle(item._id)} buttonClass={'button col-actions__button'} text={'Удалить'}/>
                             </td>
                         </tr>
                     )

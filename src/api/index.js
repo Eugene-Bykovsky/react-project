@@ -29,6 +29,17 @@ export const createArticle = async (title, imageSrc, description, text, categori
     }
 }
 
+export const deleteArticleById = async (id) => {
+    try {
+        console.log(id)
+        await axios.post(`${baseUrl}article/delete`, { id })
+        console.log('Статья удалена')
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
 export const getUser = async (authPath, login, password ) => {
     try {
         const response = await axios.post(`${baseUrl}user/${authPath}`, {login, password})
